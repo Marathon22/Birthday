@@ -1,18 +1,21 @@
 const celebrationBtn = document.getElementById('celebrationBtn');
+const initialPage = document.getElementById('initialPage');
 const celebrationPage = document.getElementById('celebrationPage');
+const wishMessage = document.getElementById('wishMessage');
 
 celebrationBtn.addEventListener('click', () => {
-    // Hide the button
-    celebrationBtn.style.display = 'none';
+    // Hide the initial page
+    initialPage.style.display = 'none';
 
-    // Remove the 'hidden' class from the celebration page
+    // Display the celebration page
     celebrationPage.classList.remove('hidden');
 
-    // Wait for 3 seconds before bursting the balloons
-    setTimeout(() => {
-        const balloons = document.querySelectorAll('.balloon');
-        balloons.forEach(balloon => {
-            balloon.style.animation = 'burst 1s forwards';
-        });
-    }, 3000);
+    // Burst the balloons immediately
+    const balloons = document.querySelectorAll('.balloon');
+    balloons.forEach(balloon => {
+        balloon.style.animation = 'burst 1s forwards';
+    });
+
+    // Change the wish message to "Happy Birthday Paul!"
+    wishMessage.textContent = 'Happy Birthday Paul! \u2764';
 });
